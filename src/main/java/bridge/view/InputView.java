@@ -1,5 +1,9 @@
 package bridge.view;
 
+import bridge.validator.Validator;
+
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
 /**
  * 사용자로부터 입력을 받는 역할을 한다.
  */
@@ -24,5 +28,18 @@ public class InputView {
      */
     public String readGameCommand() {
         return null;
+    }
+
+    private String getValidValue(String message, Validator validator) {
+        System.out.println(message);
+        while (true) {
+            try {
+                String input = readLine();
+                validator.validate(input);
+                return input;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

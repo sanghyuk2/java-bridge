@@ -14,14 +14,14 @@ public enum GameCommand {
         this.movement = movement;
     }
 
-    public static GameCommand findMovement(int key) {
+    public static GameCommand findGameCommand(int key) {
         return Arrays.stream(GameCommand.values())
                 .filter(movement -> movement.key == key)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("[ERROR] 1과 2중 하나를 선택하셔야합니다."));
     }
 
-    public String getMovement() {
+    public String getGameCommand() {
         return movement;
     }
 }

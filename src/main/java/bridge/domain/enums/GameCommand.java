@@ -16,9 +16,16 @@ public enum GameCommand {
 
     public static GameCommand findGameCommand(int key) {
         return Arrays.stream(GameCommand.values())
-                .filter(movement -> movement.key == key)
+                .filter(command -> command.key == key)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("[ERROR] 1과 2중 하나를 선택하셔야합니다."));
+    }
+
+    public static void findGameMovement(String input) {
+        Arrays.stream(GameCommand.values())
+                .filter(movement -> movement.movement.equals(input))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] U와 D중 하나를 입력해주세요."));
     }
 
     public String getGameCommand() {

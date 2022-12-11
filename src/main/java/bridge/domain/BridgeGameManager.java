@@ -5,6 +5,8 @@ import bridge.BridgeRandomNumberGenerator;
 import bridge.view.InputView;
 import bridge.view.OutputView;
 
+import java.util.List;
+
 public class BridgeGameManager {
     private final InputView inputView;
     private final OutputView outputView;
@@ -19,6 +21,6 @@ public class BridgeGameManager {
 
     public void start() {
         int bridgeSize = inputView.readBridgeSize();
-        bridgeMaker.makeBridge(bridgeSize);
+        List<String> bridge = bridgeMaker.makeBridge(bridgeSize);
     }
 }

@@ -1,6 +1,7 @@
 package bridge.view;
 
 import bridge.validator.ValidateBridgeSize;
+import bridge.validator.ValidateGameCommand;
 import bridge.validator.Validator;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -21,7 +22,7 @@ public class InputView {
      * 사용자가 이동할 칸을 입력받는다.
      */
     public String readMoving() {
-        return null;
+        return getValidValue("이동할 칸을 선택해주세요. (위: U, 아래: D)", new ValidateGameCommand());
     }
 
     /**

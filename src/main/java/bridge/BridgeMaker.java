@@ -1,6 +1,6 @@
 package bridge;
 
-import bridge.domain.enums.Movement;
+import bridge.domain.enums.GameCommand;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class BridgeMaker {
         List<String> bridge = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
-            bridge.add(Movement.findMovement(bridgeNumberGenerator.generate()).getMovement());
+            bridge.add(GameCommand.findMovement(bridgeNumberGenerator.generate()).getMovement());
         }
 
         return bridge;

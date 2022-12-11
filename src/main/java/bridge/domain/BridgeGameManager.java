@@ -24,7 +24,10 @@ public class BridgeGameManager {
     public void start() {
         int bridgeSize = inputView.readBridgeSize();
         List<String> bridge = bridgeMaker.makeBridge(bridgeSize);
-        move();
+
+        while(move() && wantRetry());
+
+        outputView.printResult(bridgeGame.gameStatus());
     }
 
     private boolean move() {
@@ -33,5 +36,9 @@ public class BridgeGameManager {
             outputView.printMap(bridgeGame.gameStatus());
         }
         return bridgeGame.isFail();
+    }
+
+    private boolean wantRetry() {
+        return true;
     }
 }
